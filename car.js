@@ -45,7 +45,8 @@ update(){
         this.angle -= 0.03;
     }
     
-    this.y -= this.speed;
+    this.x -= Math.sin(this.angle) * this.speed;
+    this.y -= Math.cos(this.angle) * this.speed;
 }
 
   draw(ctx) {
