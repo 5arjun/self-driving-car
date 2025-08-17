@@ -13,14 +13,14 @@ class Road {
   }
 
   draw(ctx) {
-    ctx.lineWidth = 5;
+    ctx.lineWidth = 2;
     ctx.strokeStyle = "white";
 
     for (let i = 0; i <= this.laneCount; i++) {
       const x = lerp(this.left, this.right, i / this.laneCount);
       if (i > 0 && i < this.laneCount) {
         ctx.setLineDash([20, 20]);
-      }else{
+      } else {
         ctx.setLineDash([]);
       }
       ctx.beginPath();
