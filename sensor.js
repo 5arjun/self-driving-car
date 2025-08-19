@@ -6,6 +6,15 @@ class Sensor{
         this.raySpread = Math.PI / 4; // 45 degrees
         
         this.rays = [];
-        this.readings = [];
+    }
+    update(){
+        this.rays = [];
+        for(let i = 0; i< this.rayCount; i++){
+            const rayAngle = lerp(
+                this.raySpread / 2,
+                -this.raySpread / 2,
+                i/(this.rayCount - 1)
+            )
+        }
     }
 }
