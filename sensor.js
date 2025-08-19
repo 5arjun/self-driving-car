@@ -14,7 +14,33 @@ class Sensor{
                 this.raySpread / 2,
                 -this.raySpread / 2,
                 i/(this.rayCount - 1)
-            )
+            );
+            const start = { 
+                x: this.car.x, 
+                y: this.car.y 
+            };
+            const end = {
+                x: this.car.x - Math.sin(this.car.angle + rayAngle) * this.rayLength,
+                y: this.car.y - Math.cos(this.car.angle + rayAngle) * this.rayLength
+            };
+            this.rays.push({ start, end });
+        }
+    }
+
+    draw(ctx){
+        for(let i = 0; i < this.rayCount; i++){
+            ctx.beginPath();
+            ctx.lineWidth = 2;
+            ctx.strokeStyle = "yellow";
+            ctx.moveTo(
+                this.rays[i].start.x,
+                this.rays[i].start.y
+            );
+            ctx.lineTo(
+                this.rays[i].end.x,
+                this.rays[i].end.y
+            );
+            ctx.stroke();
         }
     }
 }
