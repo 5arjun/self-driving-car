@@ -15,42 +15,41 @@ class Car {
     this.sensor = new Sensor(this);
     this.controls = new Controls();
     this.polygon = this.#createPolygon();
-
   }
   update(roadBorders) {
     this.#move();
     this.polygon = this.#createPolygon();
-    this.damage = this.#assessDamage(roadBorders);
+    this.damaged = this.#assessDamage(roadBorders);
     this.sensor.update(roadBorders);
   }
 
   #assessDamage(roadBorders) {
-    for( let i=0; i<roadBorders.length; i++) {
-      if(polysIntersect(this.polygon, roadBorders[i])) {
+    for (let i = 0; i < roadBorders.length; i++) {
+      if (polysIntersect(this.polygon, roadBorders[i])) {
         return true;
       }
     }
     return false;
   }
-  #createPolygon(){
+  #createPolygon() {
     const points = [];
     const rad = Math.hypot(this.width, this.height) / 2;
     const alpha = Math.atan2(this.width, this.height);
     points.push({
       x: this.x - Math.sin(this.angle - alpha) * rad,
-      y: this.y - Math.cos(this.angle - alpha) * rad
+      y: this.y - Math.cos(this.angle - alpha) * rad,
     });
     points.push({
       x: this.x - Math.sin(this.angle + alpha) * rad,
-      y: this.y - Math.cos(this.angle + alpha) * rad
+      y: this.y - Math.cos(this.angle + alpha) * rad,
     });
     points.push({
       x: this.x - Math.sin(Math.PI + this.angle - alpha) * rad,
-      y: this.y - Math.cos(Math.PI + this.angle - alpha) * rad
+      y: this.y - Math.cos(Math.PI + this.angle - alpha) * rad,
     });
     points.push({
       x: this.x - Math.sin(Math.PI + this.angle + alpha) * rad,
-      y: this.y - Math.cos(Math.PI + this.angle + alpha) * rad
+      y: this.y - Math.cos(Math.PI + this.angle + alpha) * rad,
     });
     return points;
   }
@@ -92,7 +91,13 @@ class Car {
     this.x -= Math.sin(this.angle) * this.speed;
     this.y -= Math.cos(this.angle) * this.speed;
   }
+
   draw(ctx) {
+    if (this.damaged) {
+      ctx.fillStyle = "grey";
+    } else {
+      ctx.fillStyle = "black";
+    }
     ctx.beginPath();
     ctx.moveTo(this.polygon[0].x, this.polygon[0].y);
     for (let i = 1; i < this.polygon.length; i++) {
