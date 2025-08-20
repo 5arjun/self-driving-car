@@ -31,7 +31,7 @@ class Sensor{
         for(let i = 0; i < this.rays.length; i++){
             const ray = this.rays[i];
             ctx.beginPath();
-            ctx.lineWidth = 2;
+            ctx.lineWidth = 1.5;
             ctx.strokeStyle = "yellow";
             ctx.moveTo(
                 ray.start.x,
