@@ -81,6 +81,6 @@ class Sensor {
         ctx.fill();
       }
       ctx.stroke();
-    }
+    } 
   }
 }
