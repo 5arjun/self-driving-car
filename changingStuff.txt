@@ -1,0 +1,31 @@
+Change sensor stuff: 
+    sensor.js 
+    (constructor): 
+        this.car = car;
+        this.rayCount = 3; // Number of rays to cast
+        this.rayLength = 100; // Length of each ray
+        this.raySpread = Math.PI / 4; // 45 degrees
+    ctx.lineWidth = 1.5; //how thick each sensor is
+    ctx.strokeStyle = "yellow"; //color of sensor
+
+    car.js (constructor):
+    this.speed = 0;
+    this.acceleration = 0.2;
+    this.maxSpeed = 3;
+    this.friction = 0.05;
+    this.angle = 0;
+
+    main.js: 
+    const car = new Car(road.getLaneCenter(1), 100, 30, 50);
+        road.getLaneCenter(1): which lane car stars in
+        30: width of the car
+        50: length of the car
+    ctx.translate(0,-car.y+canvas.height*0.7);
+        0.7: the position on y coord where car remains stationary
+    
+    road.js 
+    (constructor) laneCount
+    ctx.setLineDash([20, 20]);
+        first 20: length of white part of lane
+        second 20: length of blank part of lane
+
