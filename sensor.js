@@ -76,11 +76,12 @@ class Sensor {
       // Draw the ray end point if it exists
       if (this.readings[i]) {
         ctx.beginPath();
-        ctx.arc(end.x, end.y, 4, 0, Math.PI * 2);
-        ctx.fillStyle = "red"; // Color for the end point
-        ctx.fill();
+        ctx.lineWidth = 1.5;
+        ctx.strokeStyle = "black";
+        ctx.moveTo(end.x, end.y);
+        ctx.lineTo(ray.end.x, ray.end.y);
       }
       ctx.stroke();
-    } 
+    }
   }
 }
