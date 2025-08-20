@@ -67,6 +67,6 @@ class Car {
 
     ctx.restore();
 
-    //this.sensor.draw(ctx);
+    this.sensor.draw(ctx);
   }
 }
