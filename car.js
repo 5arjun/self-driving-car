@@ -9,7 +9,7 @@ class Car {
     this.acceleration = 0.2; // Acceleration rate
     this.maxSpeed = 3; // Maximum speed
     this.friction = 0.05; // Friction (deceleration) rate
-    this.angle = 0; // Current angle of the car 
+    this.angle = 0; // Current angle of the car
 
     this.sensor = new Sensor(this);
     this.controls = new Controls();
@@ -19,8 +19,31 @@ class Car {
     this.sensor.update(roadBorders);
   }
 
-    #move(){
-        if (this.controls.forward) {
+  #createPolygon(){
+    const points = [];
+    const rad = Math.hypot(this.width, this.height) / 2;
+    const alpha = Math.atan2(this.width, this.height);
+    points.push({
+      x: this.x - Math.sin(this.angle - alpha) * rad,
+      y: this.y - Math.cos(this.angle - alpha) * rad
+    });
+    points.push({
+      x: this.x - Math.sin(this.angle + alpha) * rad,
+      y: this.y - Math.cos(this.angle + alpha) * rad
+    });
+    points.push({
+      x: this.x - Math.sin(Math.PI + this.angle - alpha) * rad,
+      y: this.y - Math.cos(Math.PI + this.angle - alpha) * rad
+    });
+    points.push({
+      x: this.x - Math.sin(Math.PI + this.angle + alpha) * rad,
+      y: this.y - Math.cos(Math.PI + this.angle + alpha) * rad
+    });
+    return points;
+  }
+
+  #move() {
+    if (this.controls.forward) {
       this.speed += this.acceleration;
     }
     if (this.controls.reverse) {
@@ -55,7 +78,7 @@ class Car {
 
     this.x -= Math.sin(this.angle) * this.speed;
     this.y -= Math.cos(this.angle) * this.speed;
-    }
+  }
   draw(ctx) {
     ctx.save();
     ctx.translate(this.x, this.y);
