@@ -5,11 +5,11 @@ class Car {
     this.width = width;
     this.height = height;
 
-    this.speed = 0;
-    this.acceleration = 0.2;
-    this.maxSpeed = 3;
-    this.friction = 0.05;
-    this.angle = 0;
+    this.speed = 0; // Current speed of the car
+    this.acceleration = 0.2; // Acceleration rate
+    this.maxSpeed = 3; // Maximum speed
+    this.friction = 0.05; // Friction (deceleration) rate
+    this.angle = 0; // Current angle of the car 
 
     this.sensor = new Sensor(this);
     this.controls = new Controls();
