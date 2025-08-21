@@ -1,5 +1,5 @@
 class Car {
-  constructor(x, y, width, height, controlType) {
+  constructor(x, y, width, height, controlType, maxSpeed = 3) {
     this.x = x;
     this.y = y;
     this.width = width;
@@ -7,7 +7,7 @@ class Car {
 
     this.speed = 0; // Current speed of the car
     this.acceleration = 0.2; // Acceleration rate
-    this.maxSpeed = 3; // Maximum speed
+    this.maxSpeed = maxSpeed; // Maximum speed
     this.friction = 0.05; // Friction (deceleration) rate
     this.angle = 0; // Current angle of the car
     this.damaged = false;
