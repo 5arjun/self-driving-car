@@ -12,5 +12,15 @@ class Level {
     Level.#randomize(this);
   }
 
-  
+  static #randomize(level){
+    for(let i = 0; i < level.inputs.length; i++){
+        for(let j = 0; j < level.outputs.length; j++){
+            level.weights[i][j] = Math.random() * 2 - 1;
+        }
+    }
+
+    for (let i = 0; i < level.biases.length; i++) {
+        level.biases[i] = Math.random() * 2 - 1;
+    }
+  }
 }
