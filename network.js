@@ -38,7 +38,7 @@ class Level {
               level.outputs[i] = 1;
           } else {
               level.outputs[i] = 0;
-          }
+          } 
       }
   }
 }
