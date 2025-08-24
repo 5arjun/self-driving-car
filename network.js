@@ -15,10 +15,10 @@ class NeuralNetwork{
                 outputs = Level.feedForward(
                     outputs,network.levels[i]);
             }
-            return outputs;
-        }
+        return outputs;
     }
 }
+
 
 class Level {
   constructor(inputCount, outputCount) {
