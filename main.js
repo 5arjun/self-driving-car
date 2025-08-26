@@ -46,6 +46,8 @@ function animate(time) {
     cars[i].draw(carCtx, "blue");
   }
   carCtx.globalAlpha = 1;
+  cars[0].draw(carCtx, "blue", true);
+
 
   carCtx.restore();
 
