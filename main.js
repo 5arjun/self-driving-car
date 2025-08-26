@@ -36,7 +36,7 @@ function animate(time) {
   networkCanvas.height = window.innerHeight;
 
   carCtx.save();
-  carCtx.translate(0, -car.y + carCanvas.height * 0.7);
+  carCtx.translate(0, -cars[0].y + carCanvas.height * 0.7);
 
   road.draw(carCtx);
   for (let i = 0; i < traffic.length; i++) {
@@ -48,6 +48,6 @@ function animate(time) {
   carCtx.restore();
 
   networkCtx.lineDashOffset = -time / 50;
-  Visualizer.drawNetwork(networkCtx, car.brain);
+  Visualizer.drawNetwork(networkCtx, cars[0].brain);
   requestAnimationFrame(animate);
 }
