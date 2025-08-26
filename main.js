@@ -9,7 +9,6 @@ const networkCtx = networkCanvas.getContext("2d");
 
 const road = new Road(carCanvas.width / 2, carCanvas.width * 0.95);
 
-
 const N = 100;
 const cars = generateCars(N);
 
@@ -42,9 +41,12 @@ function animate(time) {
   for (let i = 0; i < traffic.length; i++) {
     traffic[i].draw(carCtx, "red");
   }
+  carCtx.globalAlpha = 0.2;
   for (let i = 0; i < cars.length; i++) {
     cars[i].draw(carCtx, "blue");
   }
+  carCtx.globalAlpha = 1;
+
   carCtx.restore();
 
   networkCtx.lineDashOffset = -time / 50;
