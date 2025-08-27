@@ -2,7 +2,27 @@ body {
   margin: 0;
   background: darkgray;
   overflow: hidden;
-  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;;
+}
+
+#verticalButtons {
+  display: flex;
+  flex-direction: column;
+}
+
+button{
+  border: 0;
+  border-radius: 10px;
+  padding: 6px;
+  margin: 5px;
+  background: white;
+  cursor: pointer;
+}
+ 
+button:hover{
+  background:blue;
 }
 #carCanvas {
   background: lightgray;
