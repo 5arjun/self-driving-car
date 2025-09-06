@@ -56,3 +56,6 @@ Open `index.html` in your browser to start the simulation.
 - Modify sensor settings in `sensor.js`.
 - Change road/environment parameters in `road.js`.
 
+## Inspired by:
+
+- FreeCodeCamp's video: https://www.youtube.com/watch?v=Rs_rAxEsAvI&t=8114s
