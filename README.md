@@ -11,6 +11,8 @@ A browser-based simulation of a self-driving car built with *vanilla JavaScript*
 - **Sensor Simulation**: Virtual sensors for detecting obstacles and road boundaries.
 - **No Dependencies**: Runs fully in the browser, no external JS libraries required.
 
+![image](images/ss1.png)
+
 
 ## 🖥️ Demo
 
